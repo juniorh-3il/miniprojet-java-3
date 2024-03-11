@@ -11,9 +11,10 @@ public class PenduModele {
     private final String wordListFilePath;
     private ArrayList<String> wordList;
     private HashMap<String, String> dictionary;
+    private static final String DEFAULT_WORD_LIST_FILE_PATH = "./ressources/mots.txt";
 
     public PenduModele() {
-        this("./ressources/mots.txt");
+        this(PenduModele.DEFAULT_WORD_LIST_FILE_PATH);
     }
 
     public PenduModele(String wordListFilePath) {
