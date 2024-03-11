@@ -5,12 +5,17 @@ import java.nio.file.Path;
 import java.nio.file.Paths;
 import java.util.ArrayList;
 import java.util.HashMap;
+import java.util.Random;
 
 public class PenduModele {
 
     private final String wordListFilePath;
     private ArrayList<String> wordList;
     private HashMap<String, String> dictionary;
+    private String chosenWord;
+
+    private String displayWord;
+    private ArrayList<Character> pickedLetters;
     private static final String DEFAULT_WORD_LIST_FILE_PATH = "./ressources/mots.txt";
 
     public PenduModele() {
@@ -21,6 +26,7 @@ public class PenduModele {
         this.wordListFilePath = wordListFilePath;
         this.wordList = new ArrayList<>();
         this.dictionary = new HashMap<>();
+        this.pickedLetters = new ArrayList<>();
         this.parseWordListFile();
     }
 
@@ -30,24 +36,20 @@ public class PenduModele {
         Path WORDS_FILE_PATH = Paths.get(System.getProperty("user.dir"), this.wordListFilePath);
 
         String newLine;
-        String newWord;
-        String newDefinition;
 
         try (BufferedReader br = Files.newBufferedReader(WORDS_FILE_PATH, StandardCharsets.UTF_8)) {
             while ((newLine = br.readLine()) != null) {
                 String[] wordDefinitionPair = newLine.split(" ", 2);
-                newWord = wordDefinitionPair[0];
-                newDefinition = wordDefinitionPair[1];
-
-                this.wordList.add(newWord);
-                dictionary.put(newWord, newDefinition);
+                this.wordList.add(wordDefinitionPair[0]);
+                this.dictionary.put(wordDefinitionPair[0], wordDefinitionPair[1]);
             }
         } catch (Exception e) {
             e.printStackTrace();
         }
+    }
 
-        System.err.println(WORDS_FILE_PATH);
-        System.err.println(this.wordList);
-        System.err.println(dictionary);
+    private void selectRandomWord() {
+        Random random = new Random();
+        this.chosenWord = this.wordList.get(random.nextInt(this.wordList.size()));
     }
 }
