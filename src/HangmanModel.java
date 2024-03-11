@@ -7,7 +7,7 @@ import java.util.ArrayList;
 import java.util.HashMap;
 import java.util.Random;
 
-public class PenduModele {
+public class HangmanModel {
 
     private final String wordListFilePath;
     private ArrayList<String> wordList;
@@ -16,20 +16,19 @@ public class PenduModele {
 
     private String displayWord;
     private ArrayList<Character> pickedLetters;
-    private static final String DEFAULT_WORD_LIST_FILE_PATH = "./ressources/mots.txt";
+    private static final String DEFAULT_WORD_LIST_FILE_PATH = "./resources/mots.txt";
 
-    public PenduModele() {
-        this(PenduModele.DEFAULT_WORD_LIST_FILE_PATH);
+    public HangmanModel() {
+        this(HangmanModel.DEFAULT_WORD_LIST_FILE_PATH);
     }
 
-    public PenduModele(String wordListFilePath) {
+    public HangmanModel(String wordListFilePath) {
         this.wordListFilePath = wordListFilePath;
         this.wordList = new ArrayList<>();
         this.dictionary = new HashMap<>();
         this.pickedLetters = new ArrayList<>();
         this.parseWordListFile();
     }
-
 
     private void parseWordListFile() {
 

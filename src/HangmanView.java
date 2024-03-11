@@ -3,24 +3,24 @@ import java.awt.*;
 import java.awt.event.KeyEvent;
 import java.awt.event.KeyListener;
 
-public class PenduVue extends JPanel implements KeyListener {
+public class HangmanView extends JPanel implements KeyListener {
 
-    private PenduModele modele;
+    private HangmanModel model;
 
-    public PenduVue(PenduModele modele) {
-        this.modele = modele;
+    public HangmanView(HangmanModel model) {
+        this.model = model;
         setBackground(Color.WHITE);
         this.addKeyListener(this);
         super.setPreferredSize(new Dimension(400, 300));
 
-        // Essentiel au fonctionnement du programme mais très illégal (askip)
+        // The application cannot work without those lines, but they are bad (I read it online)
         this.setFocusable(true);
         this.requestFocusInWindow();
     }
 
     @Override
     public void keyTyped(KeyEvent e) {
-        System.out.println("Waouh tu as appuyé " + e.getKeyChar());
+        System.out.println("You pressed : " + e.getKeyChar());
     }
 
     @Override

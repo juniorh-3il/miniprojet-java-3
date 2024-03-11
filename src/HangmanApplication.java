@@ -1,11 +1,11 @@
 import javax.swing.*;
 
-public class PenduApplication {
+public class HangmanApplication {
 
     public static void main(String[] args) {
-        PenduModele model = new PenduModele();
-        PenduVue view = new PenduVue(model);
-        PenduControleur controler = new PenduControleur(model, view);
+        HangmanModel model = new HangmanModel();
+        HangmanView view = new HangmanView(model);
+        HangmanController controller = new HangmanController(model, view);
 
         JFrame frame = new JFrame("Jeu du pendu");
         frame.getContentPane().add(view);
