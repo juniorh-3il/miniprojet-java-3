@@ -8,12 +8,26 @@ import java.util.HashMap;
 
 public class PenduModele {
 
-    public static void main(String[] args) {
-        final String WORDS_FILE_RELATIVE_PATH = "./ressources/mots.txt";
-        Path WORDS_FILE_PATH = Paths.get(System.getProperty("user.dir"), WORDS_FILE_RELATIVE_PATH);
+    private final String wordListFilePath;
+    private ArrayList<String> wordList;
+    private HashMap<String, String> dictionary;
 
-        ArrayList<String> words = new ArrayList<>();
-        HashMap<String, String> dictionary = new HashMap<>();
+    public PenduModele() {
+        this("./ressources/mots.txt");
+    }
+
+    public PenduModele(String wordListFilePath) {
+        this.wordListFilePath = wordListFilePath;
+        this.wordList = new ArrayList<>();
+        this.dictionary = new HashMap<>();
+        this.parseWordListFile();
+    }
+
+
+    private void parseWordListFile() {
+
+        Path WORDS_FILE_PATH = Paths.get(System.getProperty("user.dir"), this.wordListFilePath);
+
         String newLine;
         String newWord;
         String newDefinition;
@@ -24,15 +38,15 @@ public class PenduModele {
                 newWord = wordDefinitionPair[0];
                 newDefinition = wordDefinitionPair[1];
 
-                words.add(newWord);
+                this.wordList.add(newWord);
                 dictionary.put(newWord, newDefinition);
             }
         } catch (Exception e) {
             e.printStackTrace();
         }
 
-        System.out.println(WORDS_FILE_PATH);
-        System.out.println(words);
-        System.out.println(dictionary);
+        System.err.println(WORDS_FILE_PATH);
+        System.err.println(this.wordList);
+        System.err.println(dictionary);
     }
 }
