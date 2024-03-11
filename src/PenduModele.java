@@ -4,10 +4,9 @@ import java.nio.file.Files;
 import java.nio.file.Path;
 import java.nio.file.Paths;
 import java.util.ArrayList;
-import java.util.Arrays;
 import java.util.HashMap;
 
-public class Pendu {
+public class PenduModele {
 
     public static void main(String[] args) {
         final String WORDS_FILE_RELATIVE_PATH = "./ressources/mots.txt";
