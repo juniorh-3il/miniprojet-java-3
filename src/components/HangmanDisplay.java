@@ -15,23 +15,9 @@ public class HangmanDisplay extends JPanel {
 	 */
 	public HangmanDisplay() {
 		super();
+		setPreferredSize(new Dimension(400, 400));
+		setVisible(true);
 		this.nbErrors = 0;
-	}
-
-	/**
-	 * Increments the number of errors and triggers repaint.
-	 */
-	public void incrementNbErrors() {
-		this.nbErrors++;
-		repaint();
-	}
-
-	/**
-	 * Resets the number of errors to zero and triggers repaint.
-	 */
-	public void resetNbErrors() {
-		this.nbErrors = 0;
-		repaint();
 	}
 
 	/**
@@ -41,6 +27,7 @@ public class HangmanDisplay extends JPanel {
 	 */
 	public void setNbErrors(int nbErrors) {
 		this.nbErrors = nbErrors;
+		repaint();
 	}
 
 	/**
