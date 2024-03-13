@@ -18,9 +18,13 @@ public class HangmanController implements ActionListener {
             JButton newButton = new JButton(String.valueOf(letter));
             letterButtons.add(newButton);
             view.add(newButton);
+            newButton.addActionListener(this);
         }
     }
 
     @Override
-    public void actionPerformed(ActionEvent e) {}
+    public void actionPerformed(ActionEvent e) {
+        JButton buttonPressed = (JButton) e.getSource();
+        buttonPressed.setEnabled(false);
+    }
 }
