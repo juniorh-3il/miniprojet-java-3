@@ -15,7 +15,9 @@ public class HangmanController implements ActionListener {
         this.view = view;
         this.letterButtons = new ArrayList<>();
         for (char letter : HangmanController.ALPHABET) {
-            letterButtons.add(new JButton(String.valueOf(letter)));
+            JButton newButton = new JButton(String.valueOf(letter));
+            letterButtons.add(newButton);
+            view.add(newButton);
         }
     }
 
