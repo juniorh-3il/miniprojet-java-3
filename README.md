@@ -8,6 +8,7 @@
 ## Difficultés
 
 * Implémentation du modèle MVC
+* Installation de JUnit
 
 ## Commentaires
 
