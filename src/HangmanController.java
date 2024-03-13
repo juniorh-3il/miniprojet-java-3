@@ -7,12 +7,16 @@ public class HangmanController implements ActionListener {
 
 	private HangmanModel model;
 	private HangmanView view;
+	private JPanel hangmanDisplay;
+	private JLabel guessWordLabel; //TODO: new name must be chosen: the current one is dogshit!
 	private ArrayList<JButton> letterButtons;
 	public static final char[] ALPHABET = "abcdefghijklmnopqrstuvwxyz".toCharArray();
 
 	public HangmanController(HangmanModel model, HangmanView view) {
 		this.model = model;
 		this.view = view;
+		this.hangmanDisplay = (JPanel) this.view.add(new JPanel());
+		this.guessWordLabel = (JLabel) this.view.add(new JLabel());
 		this.letterButtons = new ArrayList<>();
 		for (char letter : HangmanController.ALPHABET) {
 			JButton newButton = new JButton(String.valueOf(letter));
@@ -27,5 +31,6 @@ public class HangmanController implements ActionListener {
 		JButton buttonPressed = (JButton) e.getSource();
 		buttonPressed.setEnabled(false);
 		this.model.pickLetter(buttonPressed.getText().charAt(0));
+		this.guessWordLabel.setText(this.model.getDisplayedWord());
 	}
 }

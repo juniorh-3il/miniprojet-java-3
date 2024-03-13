@@ -35,11 +35,6 @@ public class HangmanModel {
 		this.displayedWord = "_".repeat(this.chosenWord.length());
 		this.letterOccurrences = new HashMap<>();
 		this.parseLetterOccurrences();
-
-		System.out.println(this.displayedWord);
-		System.out.println(this.chosenWord);
-		System.out.println(this.sanitizedChosenWord);
-		System.out.println(this.letterOccurrences);
 	}
 
 	private void parseWordListFile() {
@@ -61,7 +56,7 @@ public class HangmanModel {
 
 	public void pickLetter(Character pickedLetter) {
 		this.pickedLetters.add(pickedLetter);
-		this.refreshDisplayedWord();
+		this.updateDisplayedWord();
 		System.out.println(this.displayedWord);
 	}
 
@@ -84,7 +79,7 @@ public class HangmanModel {
 		}
 	}
 
-	private void refreshDisplayedWord() {
+	private void updateDisplayedWord() {
 		this.displayedWord = "_".repeat(this.chosenWord.length());
 		for (Character letter : this.pickedLetters) {
 			if (this.letterOccurrences.containsKey(letter)) {
@@ -93,5 +88,9 @@ public class HangmanModel {
 				}
 			}
 		}
+	}
+
+	public String getDisplayedWord() {
+		return this.displayedWord;
 	}
 }
