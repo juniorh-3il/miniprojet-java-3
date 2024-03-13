@@ -17,7 +17,7 @@ public class HangmanView extends JPanel {
 	public HangmanView(HangmanModel model) {
 		this.model = model;
 		setBackground(Color.WHITE);
-		super.setPreferredSize(new Dimension(400, 300));
+		super.setPreferredSize(new Dimension(1000, 1000));
 	}
 
 	/**
@@ -66,9 +66,9 @@ public class HangmanView extends JPanel {
 	 */
 	public void displayResultMessage(boolean isWin) {
 		if (isWin) {
-			add(new JDialog((JFrame) this.getParent(), "You Lose", true));
+			add(new JDialog(((JFrame) this.getParent()), "You Lose", true));
 		} else {
-			add(new JDialog((JFrame) this.getParent(), "You Win", true));
+			add(new JDialog(((JFrame) this.getParent()), "You Win", true));
 		}
 	}
 }

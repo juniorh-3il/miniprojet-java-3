@@ -12,8 +12,8 @@ import java.util.ArrayList;
 public class HangmanController implements ActionListener {
 
 	public static final char[] ALPHABET = "abcdefghijklmnopqrstuvwxyz".toCharArray();
-	private HangmanModel model;
-	private HangmanView view;
+	private final HangmanModel model;
+	private final HangmanView view;
 	private HangmanDisplay hangmanDisplay;
 	private JLabel guessWordLabel; // TODO: Rename this variable to provide a more descriptive name
 	private ArrayList<JButton> letterButtons;

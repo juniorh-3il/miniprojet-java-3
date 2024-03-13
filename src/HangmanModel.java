@@ -16,13 +16,13 @@ public class HangmanModel {
 
 	private static final String DEFAULT_WORD_LIST_FILE_PATH = "./resources/mots.txt";
 	private final String wordListFilePath;
-	private ArrayList<String> wordList;
-	private HashMap<String, String> dictionary;
+	private final ArrayList<String> wordList;
+	private final HashMap<String, String> dictionary;
+	private final ArrayList<Character> pickedLetters;
+	private final HashMap<Character, ArrayList<Integer>> letterOccurrences;
 	private String chosenWord;
 	private String sanitizedChosenWord;
 	private String displayedWord;
-	private ArrayList<Character> pickedLetters;
-	private HashMap<Character, ArrayList<Integer>> letterOccurrences;
 	private int nbErrors;
 
 	/**
@@ -78,8 +78,6 @@ public class HangmanModel {
 			this.nbErrors++;
 		}
 		this.updateDisplayedWord();
-		System.out.println(this.displayedWord);
-		System.out.println(nbErrors);
 	}
 
 	/**
@@ -99,7 +97,7 @@ public class HangmanModel {
 			for (int index = this.sanitizedChosenWord.indexOf(letter); index >= 0; index = this.sanitizedChosenWord.indexOf(letter, index + 1)) {
 				ArrayList<Integer> indexes = this.letterOccurrences.get(letter);
 				if (indexes == null) {
-					indexes = new ArrayList<Integer>();
+					indexes = new ArrayList<>();
 				}
 				indexes.add(index);
 				this.letterOccurrences.put(letter, indexes);
