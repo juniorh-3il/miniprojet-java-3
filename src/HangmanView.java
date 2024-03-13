@@ -12,7 +12,7 @@ public class HangmanView extends JPanel {
 	}
 
 	private void dessinerPendu(Graphics g, int nbErrors) {
-		switch(nbErrors) {
+		switch (nbErrors) {
 			case 8:
 				// Jambe droite
 				g.drawLine(250, 250, 275, 300);

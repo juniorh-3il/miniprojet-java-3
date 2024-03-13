@@ -10,20 +10,16 @@ import java.util.Random;
 
 public class HangmanModel {
 
+	private static final String DEFAULT_WORD_LIST_FILE_PATH = "./resources/mots.txt";
 	private final String wordListFilePath;
 	private ArrayList<String> wordList;
 	private HashMap<String, String> dictionary;
 	private String chosenWord;
-
 	private String sanitizedChosenWord;
 	private String displayedWord;
 	private ArrayList<Character> pickedLetters;
 	private HashMap<Character, ArrayList<Integer>> letterOccurrences;
-
-
-
 	private int nbErrors;
-	private static final String DEFAULT_WORD_LIST_FILE_PATH = "./resources/mots.txt";
 
 	public HangmanModel() {
 		this(HangmanModel.DEFAULT_WORD_LIST_FILE_PATH);

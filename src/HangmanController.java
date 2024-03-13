@@ -1,19 +1,18 @@
 import components.HangmanDisplay;
 
 import javax.swing.*;
-import java.awt.*;
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
 import java.util.ArrayList;
 
 public class HangmanController implements ActionListener {
 
+	public static final char[] ALPHABET = "abcdefghijklmnopqrstuvwxyz".toCharArray();
 	private HangmanModel model;
 	private HangmanView view;
 	private HangmanDisplay hangmanDisplay;
 	private JLabel guessWordLabel; //TODO: new name must be chosen: the current one is dogshit!
 	private ArrayList<JButton> letterButtons;
-	public static final char[] ALPHABET = "abcdefghijklmnopqrstuvwxyz".toCharArray();
 
 	public HangmanController(HangmanModel model, HangmanView view) {
 		this.model = model;

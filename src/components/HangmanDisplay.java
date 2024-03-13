@@ -33,7 +33,7 @@ public class HangmanDisplay extends JPanel {
 	}
 
 	private void drawHangman(Graphics g) {
-		switch(this.nbErrors) {
+		switch (this.nbErrors) {
 			case 8:
 				// Jambe droite
 				g.drawLine(250, 250, 275, 300);
