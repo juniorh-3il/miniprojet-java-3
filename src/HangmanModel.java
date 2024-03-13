@@ -19,6 +19,10 @@ public class HangmanModel {
 	private String displayedWord;
 	private ArrayList<Character> pickedLetters;
 	private HashMap<Character, ArrayList<Integer>> letterOccurrences;
+
+
+
+	private int nbErrors;
 	private static final String DEFAULT_WORD_LIST_FILE_PATH = "./resources/mots.txt";
 
 	public HangmanModel() {
@@ -34,6 +38,7 @@ public class HangmanModel {
 		this.pickRandomWord();
 		this.displayedWord = "_".repeat(this.chosenWord.length());
 		this.letterOccurrences = new HashMap<>();
+		this.nbErrors = 0;
 		this.parseLetterOccurrences();
 	}
 
@@ -56,8 +61,12 @@ public class HangmanModel {
 
 	public void pickLetter(Character pickedLetter) {
 		this.pickedLetters.add(pickedLetter);
+		if (!this.letterOccurrences.containsKey(pickedLetter)) {
+			this.nbErrors++;
+		}
 		this.updateDisplayedWord();
 		System.out.println(this.displayedWord);
+		System.out.println(nbErrors);
 	}
 
 	private void pickRandomWord() {
@@ -68,7 +77,7 @@ public class HangmanModel {
 
 	private void parseLetterOccurrences() {
 		for (Character letter : HangmanController.ALPHABET) {
-			for (int index = this.chosenWord.indexOf(letter); index >= 0; index = this.chosenWord.indexOf(letter, index + 1)) {
+			for (int index = this.sanitizedChosenWord.indexOf(letter); index >= 0; index = this.sanitizedChosenWord.indexOf(letter, index + 1)) {
 				ArrayList<Integer> indexes = this.letterOccurrences.get(letter);
 				if (indexes == null) {
 					indexes = new ArrayList<Integer>();
@@ -92,5 +101,9 @@ public class HangmanModel {
 
 	public String getDisplayedWord() {
 		return this.displayedWord;
+	}
+
+	public int getNbErrors() {
+		return nbErrors;
 	}
 }
