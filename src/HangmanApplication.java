@@ -1,7 +1,5 @@
 import javax.swing.*;
 
-import javax.swing.*;
-
 /**
  * HangmanApplication is the main class for running the Hangman game.
  * It initializes the model, view, and controller components, and sets up the graphical user interface.

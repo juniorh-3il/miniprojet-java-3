@@ -1,9 +1,6 @@
 import javax.swing.*;
 import java.awt.*;
 
-import javax.swing.*;
-import java.awt.*;
-
 /**
  * HangmanView represents the graphical user interface for the Hangman game.
  * It displays the hangman figure based on the number of errors and shows the result message.
@@ -26,7 +23,7 @@ public class HangmanView extends JPanel {
 	/**
 	 * Draws the hangman figure based on the number of errors.
 	 *
-	 * @param g the Graphics object for drawing
+	 * @param g        the Graphics object for drawing
 	 * @param nbErrors the number of errors made by the player
 	 */
 	private void dessinerPendu(Graphics g, int nbErrors) {

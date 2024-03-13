@@ -22,7 +22,7 @@ public class HangmanController implements ActionListener {
 	 * Constructs a HangmanController object with the specified HangmanModel and HangmanView.
 	 *
 	 * @param model the HangmanModel representing the game state
-	 * @param view the HangmanView representing the game interface
+	 * @param view  the HangmanView representing the game interface
 	 */
 	public HangmanController(HangmanModel model, HangmanView view) {
 		this.model = model;
