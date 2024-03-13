@@ -5,15 +5,25 @@ import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
 import java.util.ArrayList;
 
+/**
+ * HangmanController manages user interactions and updates between the HangmanModel and HangmanView.
+ * It handles button clicks for letter selection and updates the game state accordingly.
+ */
 public class HangmanController implements ActionListener {
 
 	public static final char[] ALPHABET = "abcdefghijklmnopqrstuvwxyz".toCharArray();
 	private HangmanModel model;
 	private HangmanView view;
 	private HangmanDisplay hangmanDisplay;
-	private JLabel guessWordLabel; //TODO: new name must be chosen: the current one is dogshit!
+	private JLabel guessWordLabel; // TODO: Rename this variable to provide a more descriptive name
 	private ArrayList<JButton> letterButtons;
 
+	/**
+	 * Constructs a HangmanController object with the specified HangmanModel and HangmanView.
+	 *
+	 * @param model the HangmanModel representing the game state
+	 * @param view the HangmanView representing the game interface
+	 */
 	public HangmanController(HangmanModel model, HangmanView view) {
 		this.model = model;
 		this.view = view;
@@ -28,6 +38,12 @@ public class HangmanController implements ActionListener {
 		}
 	}
 
+	/**
+	 * Handles actionPerformed event for the buttons.
+	 * Updates the game state and view based on the user's interaction.
+	 *
+	 * @param e the ActionEvent object representing the user's action
+	 */
 	@Override
 	public void actionPerformed(ActionEvent e) {
 		JButton buttonPressed = (JButton) e.getSource();
@@ -42,3 +58,4 @@ public class HangmanController implements ActionListener {
 		}
 	}
 }
+

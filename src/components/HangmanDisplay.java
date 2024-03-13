@@ -3,61 +3,88 @@ package components;
 import javax.swing.*;
 import java.awt.*;
 
+/**
+ * HangmanDisplay is a custom JPanel component that displays the hangman figure based on the number of errors.
+ */
 public class HangmanDisplay extends JPanel {
 
 	private int nbErrors;
 
+	/**
+	 * Constructs a HangmanDisplay object with zero errors.
+	 */
 	public HangmanDisplay() {
 		super();
 		this.nbErrors = 0;
 	}
 
+	/**
+	 * Increments the number of errors and triggers repaint.
+	 */
 	public void incrementNbErrors() {
 		this.nbErrors++;
 		repaint();
 	}
 
+	/**
+	 * Resets the number of errors to zero and triggers repaint.
+	 */
 	public void resetNbErrors() {
 		this.nbErrors = 0;
 		repaint();
 	}
 
+	/**
+	 * Sets the number of errors to the specified value.
+	 *
+	 * @param nbErrors the number of errors to set
+	 */
 	public void setNbErrors(int nbErrors) {
 		this.nbErrors = nbErrors;
 	}
 
+	/**
+	 * Overrides the paintComponent method to draw the hangman figure based on the number of errors.
+	 *
+	 * @param g the Graphics object for drawing
+	 */
 	@Override
 	protected void paintComponent(Graphics g) {
 		super.paintComponent(g);
 		this.drawHangman(g);
 	}
 
+	/**
+	 * Draws the hangman figure based on the number of errors.
+	 *
+	 * @param g the Graphics object for drawing
+	 */
 	private void drawHangman(Graphics g) {
 		switch (this.nbErrors) {
 			case 8:
-				// Jambe droite
+				// Right leg
 				g.drawLine(250, 250, 275, 300);
 			case 7:
-				// Jambe gauche
+				// Left leg
 				g.drawLine(250, 250, 225, 300);
 			case 6:
-				// Bras droit
+				// Right arm
 				g.drawLine(250, 150, 275, 200);
 			case 5:
-				// Bras gauche
+				// Left arm
 				g.drawLine(250, 150, 225, 200);
 			case 4:
-				// Corps
+				// Body
 				g.drawLine(250, 150, 250, 250);
 			case 3:
-				// Tête
+				// Head
 				g.drawLine(250, 50, 250, 100);
 				g.drawOval(225, 100, 50, 50);
 			case 2:
-				// Barre horizontale
+				// Horizontal bar
 				g.drawLine(100, 50, 250, 50);
 			case 1:
-				// Potence verticale
+				// Vertical pole
 				g.drawLine(100, 50, 100, 300);
 				break;
 			default:
